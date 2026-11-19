@@ -35,7 +35,13 @@ La base de datos `Ventas_Tech_DB` contiene las siguientes tablas:
 - **clientes:** contiene información de los clientes.
 - **productos:** almacena los productos comercializados.
 - **categorias:** clasifica los productos.
+**Relaciones entre las tablas:**
 
+- La tabla `ventas` es la tabla central del análisis y se relaciona con `clientes` mediante `id_cliente`.
+- La tabla `ventas` se relaciona con `productos` mediante `id_producto`.
+- La tabla `productos` se relaciona con `categorias` mediante `id_categoria`.
+
+Estas relaciones permiten integrar la información comercial y analizar las ventas según clientes, productos y categorías.
 ## Cómo ejecutar los scripts
 
 1. Abrir Microsoft SQL Server Management Studio.
@@ -44,8 +50,12 @@ La base de datos `Ventas_Tech_DB` contiene las siguientes tablas:
 4. Ejecutar `m5_consultas_joins.sql` para realizar consultas que relacionan las distintas tablas.
 5. Revisar los resultados en la ventana de consultas de SQL Server Management Studio.
 
-**Importante:** el archivo de creación contiene instrucciones `DROP TABLE IF EXISTS`. Estas instrucciones eliminan las tablas existentes antes de volver a crearlas. Ejecutar el archivo con precaución si se desean conservar datos cargados previamente.
+**Consideración sobre INNER JOIN:**
 
+La consulta base de M5 utiliza INNER JOIN para relacionar las tablas. Este tipo de unión devuelve únicamente los registros que tienen coincidencias en todas las tablas relacionadas. Por lo tanto, las ventas que no tengan correspondencia en alguna de ellas no aparecerán en el resultado.
+
+**Importante:** el archivo de creación contiene instrucciones `DROP TABLE IF EXISTS`. Estas instrucciones eliminan las tablas existentes antes de volver a crearlas. Ejecutar el archivo con precaución si se desean conservar datos cargados previamente.
+Antes de ejecutar este script, se recomienda realizar una copia de seguridad de la base de datos si contiene información que se desea conservar.
 ## Análisis realizado
 
 Entre los análisis desarrollados se encuentran:
